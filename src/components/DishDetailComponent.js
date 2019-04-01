@@ -8,7 +8,7 @@ class DishDetail extends Component {
         return(
             <div className="col-12 col-md-5 m-1">
             <Card>
-            <CardImg width="100%" object src={dish.image} alt={dish.name} />
+            <CardImg width="100%" src={dish.image} alt={dish.name} />
             <CardTitle>{dish.name}</CardTitle>
             <CardText>{dish.description}</CardText>
             </Card>
@@ -26,7 +26,7 @@ class DishDetail extends Component {
                         return (
                             <li key={e.key}>
                                 <p>{e.comment}</p>
-                                <p>{e.author} {e.date}</p>
+                                <p>{e.author} {new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: '2-digit'}).format(new Date(Date.parse(e.date)))} </p>
                             </li>
                         );
                     })}
@@ -38,11 +38,13 @@ class DishDetail extends Component {
             return <div></div>;
         }
     }
-
+    
     render() {
         if(this.props.selectedDish != null) {
             return (
-            <div className="row">{this.renderDish(this.props.selectedDish)}{this.renderComments(this.props.selectedDish.comments)}</div>
+                <div className="container">
+                    <div className="row">{this.renderDish(this.props.selectedDish)}{this.renderComments(this.props.selectedDish.comments)}</div>
+                </div>
             )
         } else {
             return <div></div>;
@@ -53,3 +55,5 @@ class DishDetail extends Component {
 
 
 export default DishDetail;
+
+// https://github.com/hanCodeHub/nucamp-react-confusion/blob/master/src/components/DishDetailComponent.js
