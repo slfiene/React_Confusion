@@ -28,8 +28,7 @@ class Main extends Component {
         </div>
         </Navbar>
       <Menu dishes={this.state.dishes} 
-        onClick={(dish) => {this.onDishSelect(dish); 
-        console.log(this.state.selectedDish)}}/>
+        onClick={(dish) => this.onDishSelect(dish)}/>
       <DishDetail 
         selectedDish={this.state.dishes.filter((dish) => dish.id === this.state.selectedDish)[0]} 
       />
