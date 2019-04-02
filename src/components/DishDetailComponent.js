@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { Card, CardImg, CardText, CardTitle } from 'reactstrap';
+import { Card, CardImg, CardText, CardBody, CardTitle } from 'reactstrap';
 
 
 class DishDetail extends Component {
@@ -9,8 +9,10 @@ class DishDetail extends Component {
             <div className="col-12 col-md-5 m-1">
             <Card>
             <CardImg width="100%" src={dish.image} alt={dish.name} />
+            <CardBody>
             <CardTitle>{dish.name}</CardTitle>
             <CardText>{dish.description}</CardText>
+            </CardBody>
             </Card>
             </div>
         )
@@ -24,7 +26,7 @@ class DishDetail extends Component {
                 <ul className="list-unstyled">
                     {comments.map((e) => {
                         return (
-                            <li key={e.key}>
+                            <li key={e.id}>
                                 <p>{e.comment}</p>
                                 <p>{e.author} {new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: '2-digit'}).format(new Date(Date.parse(e.date)))} </p>
                             </li>
@@ -55,5 +57,3 @@ class DishDetail extends Component {
 
 
 export default DishDetail;
-
-// https://github.com/hanCodeHub/nucamp-react-confusion/blob/master/src/components/DishDetailComponent.js
