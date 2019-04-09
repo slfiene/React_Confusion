@@ -12,8 +12,7 @@ import { Link } from "react-router-dom";
 const RenderLeader = ({ leader }) => {
   if (leader != null) {
     return (
-      <div key={leader.id} className="col-12 mt-5">
-        <Media tag="li">
+        <Media key={leader.id} tag="li">
           <Media left middle>
             <Media object src={leader.image} alt={leader.name} />
           </Media>
@@ -23,7 +22,6 @@ const RenderLeader = ({ leader }) => {
             <p>{leader.description}</p>
           </Media>
         </Media>
-      </div>
     );
   } else {
     return <div />;
@@ -31,7 +29,6 @@ const RenderLeader = ({ leader }) => {
 };
 
 function About(props) {
-  console.log(props.leaders);
   const leaders = props.leaders.map(leader => {
     return <RenderLeader key={leader.id} leader={leader} />;
   });
@@ -113,7 +110,6 @@ function About(props) {
         </div>
         <div className="col-12">
           <Media list>{leaders}</Media>
-          <RenderLeader leaders={props.leaders} />
         </div>
       </div>
     </div>
