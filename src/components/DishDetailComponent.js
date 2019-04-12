@@ -28,13 +28,12 @@ class CommentForm extends Component {
       isModalOpen: false
     };
     this.toggleModal = this.toggleModal.bind(this);
-    this.handleComment = this.handleComment.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  toggleModal = props => {
+  toggleModal = () => {
     this.setState({
-      isModalOpen: !props.isModalOpen
+      isModalOpen: !this.state.isModalOpen
     });
   };
   handleComment = event => {
@@ -62,7 +61,7 @@ class CommentForm extends Component {
             <LocalForm onSubmit={values => this.handleSubmit(values)}>
               <Row className="form-group">
                 <Col>
-                  <Label htmlFor="rating" md={10}>Rating
+                  <Label htmlFor="rating">Rating
                   </Label>
                   <Control.select
                     model=".rating"
@@ -79,7 +78,7 @@ class CommentForm extends Component {
                 </Col>
               </Row>
               <Row className="form-group">
-                <Label htmlFor="author" md={12}>
+                <Label htmlFor="author" md={12} >
                   Your Name
                 </Label>
                 <Col>
